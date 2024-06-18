@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Confirmation</title>
+</head>
+<body>
+<h2>Appointment Confirmation</h2>
+<p>Hello {{ fullName }},</p>
+<p>Your appointment has been successfully scheduled with the following details:</p>
+<ul>
+    <li><strong>Selected Day:</strong> {{ selectedDay }}</li>
+    <li><strong>Selected Time:</strong> {{ selectedTime }}</li>
+    <li><strong>Doctor Name:</strong> {{ userFirstname }} {{ userLastname }}</li>
+    <li><strong>Doctor Email:</strong> {{ userEmail }}</li>
+    <li><strong>Doctor Phone Number:</strong> {{ userPhoneNumber }}</li>
+</ul>
+<p>Thank you for choosing our service.</p>
+<p>Best regards,</p>
+<p>Your Health Clinic Team</p>
+</body>
+</html>
