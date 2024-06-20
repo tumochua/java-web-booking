@@ -1,0 +1,58 @@
+# version: '3.8'
+
+# services:
+#   backend:
+#     build:
+#       context: ./identity_service
+#       dockerfile: Dockerfile
+#     ports:
+#       - "5000:5000"
+#     depends_on:
+#       - db
+
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+
+#   db:
+#     image: mysql:5.7
+#     restart: always
+#     environment:
+#       MYSQL_DATABASE: 'identity_service'
+#       MYSQL_PASSWORD: '123456'
+#       MYSQL_ROOT_PASSWORD: '123456'
+#     ports:
+#       - "3306:3306"
+
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./identity_service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'identity_service'
+      MYSQL_ROOT_PASSWORD: '123456'
+    ports:
+      - "3306:3306"
